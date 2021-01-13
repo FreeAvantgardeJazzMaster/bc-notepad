@@ -4,6 +4,7 @@ import {OnInit, OnDestroy} from '@angular/core';
 
 import schema from "../schema";
 import plugins from "./plugin";
+import { placeholder } from 'ngx-editor/plugins';
 
 @Component({
     selector: 'the-editor',
@@ -29,7 +30,10 @@ export class TheEditor implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
-    this.editor = new Editor({schema, plugins});
+        this.editor = new Editor({
+            schema, 
+            plugins});
+        this.editor.setPlaceholder('Pisz tutaj..');
     }
 
     ngOnDestroy(): void {
